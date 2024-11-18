@@ -1,8 +1,10 @@
 package passwordgenerator.com;
 
-public class SimplePasswordGenerator implements PasswordGenerator{
+public class SimplePasswordGenerator implements PasswordGenerator {
+
     @Override
-    public String generatePassword(int length, int uppercase, int digits, int special) {
+    public String generatePassword(int length, boolean uppercase, boolean digits, boolean special) {
         return "";
     }
+
 }
