@@ -1,6 +1,5 @@
 package passwordgenerator.com;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public record PasswordCriteria(PasswordNameStrategy strategy, int length, boolean uppercase, boolean digits,

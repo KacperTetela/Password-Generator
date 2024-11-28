@@ -3,6 +3,9 @@ package passwordgenerator.com;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+
+import static passwordgenerator.com.Utils.getRandomIndex;
 
 public class ComplexPasswordGenerator implements PasswordGenerator {
 
@@ -72,13 +75,6 @@ public class ComplexPasswordGenerator implements PasswordGenerator {
         }
 
         return stringShuffle(finalPassword.toString());
-    }
-
-    private int getRandomIndex(int size) {
-        if (size == 0) {
-            throw new IllegalArgumentException("Size must be greater than 0");
-        }
-        return (int) (Math.random() * size);
     }
 
     private String stringShuffle(String toShuffle) {
