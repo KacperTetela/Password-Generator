@@ -10,4 +10,5 @@ public class Utils {
     public static char getRandomASCILetter() {
         return (char) new Random().nextInt(97, 123);
     }
+
 }

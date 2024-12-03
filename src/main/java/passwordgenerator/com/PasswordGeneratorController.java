@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/passwords")
 public class PasswordGeneratorController {
 
-    private PasswordGeneratorService passwordGeneratorService;
+    private PasswordFactory passwordFactory;
 
-    public PasswordGeneratorController(PasswordGeneratorService passwordGeneratorService) {
-        this.passwordGeneratorService = passwordGeneratorService;
+    public PasswordGeneratorController(PasswordFactory passwordFactory) {
+        this.passwordFactory = passwordFactory;
     }
 
     @GetMapping
@@ -20,6 +20,16 @@ public class PasswordGeneratorController {
 
     @PostMapping
     public String generatePassword(@RequestBody PasswordCriteria passwordCriteria) {
-        return passwordGeneratorService.createPassword(passwordCriteria);
+        PasswordNameStrategy strategy = switch (passwordCriteria.strategy().toString()) {
+            case "SIMPLE" -> PasswordNameStrategy.SIMPLE;
+            case "COMPLEX" -> PasswordNameStrategy.COMPLEX;
+            default -> throw new IllegalArgumentException("Invalid strategy: " + passwordCriteria.strategy());
+        };
+
+        return passwordFactory.createPassword(strategy,
+                passwordCriteria.length(),
+                passwordCriteria.uppercase(),
+                passwordCriteria.digits(),
+                passwordCriteria.special());
     }
 }

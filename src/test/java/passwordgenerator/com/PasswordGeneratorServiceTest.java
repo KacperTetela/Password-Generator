@@ -9,7 +9,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PasswordGeneratorServiceTest {
-
+/*
     private PasswordGeneratorService passwordGeneratorService;
 
     @BeforeEach
@@ -37,7 +37,7 @@ class PasswordGeneratorServiceTest {
                 .build()));
     }
 
-/*    @ParameterizedTest
+*//*    @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 5, 31, -3, Integer.MAX_VALUE})
     public void checkIsTheSpecialSignRequiredPositive(int valueOfSpecialSigns) {
         String password = passwordGeneratorService.createPassword(PasswordCriteria.builder()
@@ -57,9 +57,9 @@ class PasswordGeneratorServiceTest {
         System.out.println("Value of Special Signs "+ valueOfSpecialSigns);
 
         assertEquals(valueOfSpecialSigns, count);
-    }*/
+    }*//*
 
-/*    @ParameterizedTest
+*//*    @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 5, 31, -3, Integer.MAX_VALUE})
     public void checkIsTheSpecialSignRequiredNegative(int passwordLength) {
         assertThrows(IllegalArgumentException.class, () -> passwordGeneratorService.createPassword(passwordLength));

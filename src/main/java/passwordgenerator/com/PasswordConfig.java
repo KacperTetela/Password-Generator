@@ -10,21 +10,16 @@ import java.util.Map;
 public class PasswordConfig {
 
     @Bean
-    public Map<String, PasswordGenerator> passwordGenerators() {
-        Map<String, PasswordGenerator> generators = new HashMap<>();
-        generators.put("simple", new SimplePasswordGenerator());
-        generators.put("complex", new ComplexPasswordGenerator());
+    public Map<PasswordNameStrategy, PasswordGenerator> passwordGenerators() {
+        Map<PasswordNameStrategy, PasswordGenerator> generators = new HashMap<>();
+        generators.put(PasswordNameStrategy.SIMPLE, new SimplePasswordGenerator());
+        generators.put(PasswordNameStrategy.COMPLEX, new ComplexPasswordGenerator());
         return generators;
     }
 
     @Bean
-    public PasswordFactory passwordFactory(Map<String, PasswordGenerator> generators) {
+    public PasswordFactory passwordFactory(Map<PasswordNameStrategy, PasswordGenerator> generators) {
         return new PasswordFactory(generators);
-    }
-
-    @Bean
-    public PasswordGeneratorService passwordService(PasswordFactory passwordFactory) {
-        return new PasswordGeneratorService(passwordFactory);
     }
 
 }

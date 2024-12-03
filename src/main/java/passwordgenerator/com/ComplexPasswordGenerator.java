@@ -3,7 +3,6 @@ package passwordgenerator.com;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 import static passwordgenerator.com.Utils.getRandomIndex;
 

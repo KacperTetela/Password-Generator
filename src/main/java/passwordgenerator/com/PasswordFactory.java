@@ -3,9 +3,10 @@ package passwordgenerator.com;
 import java.util.Map;
 
 public class PasswordFactory {
-    private final Map<String, PasswordGenerator> generators;
 
-    public PasswordFactory(Map<String, PasswordGenerator> generators) {
+    private final Map<PasswordNameStrategy, PasswordGenerator> generators;
+
+    public PasswordFactory(Map<PasswordNameStrategy, PasswordGenerator> generators) {
         this.generators = generators;
     }
 

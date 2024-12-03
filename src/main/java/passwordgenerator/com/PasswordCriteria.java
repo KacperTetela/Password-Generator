@@ -7,7 +7,7 @@ public record PasswordCriteria(PasswordNameStrategy strategy, int length, boolea
 
     private static final PasswordNameStrategy DEFAULT_STRATEGY = PasswordNameStrategy.SIMPLE;
 
-    private static final int MIN_LENGTH = 8;
+    private static final int MIN_LENGTH = 3;
     private static final int MAX_LENGTH = 30;
     private static final int DEFAULT_LENGTH = 10;
 

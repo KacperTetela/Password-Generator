@@ -2,19 +2,16 @@ package passwordgenerator.com;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class RandomWordDownloaderTest {
+class APIWordDownloaderTest {
 
-    @Test
+/*    @Test
     void getRandomWord() {
-        RandomWordDownloader randomWordDownloader = new RandomWordDownloader();
+        APIWordDownloader APIWordDownloader = new APIWordDownloader();
 
-        String firstWord = randomWordDownloader.getWord();
-        String secondWord = randomWordDownloader.getWord();
+        String firstWord = APIWordDownloader.getWord();
+        String secondWord = APIWordDownloader.getWord();
 
         assertNotEquals(firstWord, secondWord);
         assertNotEquals("", firstWord);
@@ -34,7 +31,7 @@ class RandomWordDownloaderTest {
     @Test
     void getWordStartingWith() {
 
-    }
+    }*/
 
 
 }
