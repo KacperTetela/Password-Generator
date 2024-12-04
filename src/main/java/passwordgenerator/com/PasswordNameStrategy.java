@@ -2,5 +2,6 @@ package passwordgenerator.com;
 
 public enum PasswordNameStrategy {
     SIMPLE,
-    COMPLEX
+    COMPLEX,
+    SOUNDS_LIKE
 }

@@ -8,10 +8,10 @@ class APIWordDownloaderTest {
 
 /*    @Test
     void getRandomWord() {
-        APIWordDownloader APIWordDownloader = new APIWordDownloader();
+        AutoWordDownloader AutoWordDownloader = new AutoWordDownloader();
 
-        String firstWord = APIWordDownloader.getWord();
-        String secondWord = APIWordDownloader.getWord();
+        String firstWord = AutoWordDownloader.getWord();
+        String secondWord = AutoWordDownloader.getWord();
 
         assertNotEquals(firstWord, secondWord);
         assertNotEquals("", firstWord);

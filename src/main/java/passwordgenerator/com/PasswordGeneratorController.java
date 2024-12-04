@@ -23,6 +23,7 @@ public class PasswordGeneratorController {
         PasswordNameStrategy strategy = switch (passwordCriteria.strategy().toString()) {
             case "SIMPLE" -> PasswordNameStrategy.SIMPLE;
             case "COMPLEX" -> PasswordNameStrategy.COMPLEX;
+            case "SOUNDS_LIKE" -> PasswordNameStrategy.SOUNDS_LIKE;
             default -> throw new IllegalArgumentException("Invalid strategy: " + passwordCriteria.strategy());
         };
 

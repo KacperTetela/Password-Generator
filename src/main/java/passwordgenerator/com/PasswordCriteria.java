@@ -31,8 +31,7 @@ public record PasswordCriteria(PasswordNameStrategy strategy, int length, boolea
     );
 
     public static final List<Character> SPECIAL_SIGNS = List.of(
-            '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=',
-            '[', ']', '{', '}', ';', '\'', ':', '"', '\\', '|', ',', '.', '<', '>', '/', '?'
+            '!', '@', '#', '$', '%', '&', '*', '_', '-'
     );
 
     public PasswordCriteria {

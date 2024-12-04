@@ -14,6 +14,7 @@ public class PasswordConfig {
         Map<PasswordNameStrategy, PasswordGenerator> generators = new HashMap<>();
         generators.put(PasswordNameStrategy.SIMPLE, new SimplePasswordGenerator());
         generators.put(PasswordNameStrategy.COMPLEX, new ComplexPasswordGenerator());
+        generators.put(PasswordNameStrategy.SOUNDS_LIKE, new SoundsLikePasswordGenerator());
         return generators;
     }
 

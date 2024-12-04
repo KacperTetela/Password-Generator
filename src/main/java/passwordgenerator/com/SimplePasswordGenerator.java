@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SimplePasswordGenerator implements PasswordGenerator {
 
-    private APIWordDownloader apiWordDownloader = new APIWordDownloader();
+    private AutoWordDownloader autoWordDownloader = new AutoWordDownloader();
 
     @Override
     public String generatePassword(int length, boolean uppercase, boolean digits, boolean special) {
@@ -14,7 +14,7 @@ public class SimplePasswordGenerator implements PasswordGenerator {
         length = digits ? length - 1 : length;
         length = special ? length - 1 : length;
 
-        passwordToReturn.append(apiWordDownloader.getRandomWord(length));
+        passwordToReturn.append(autoWordDownloader.getRandomWord(length));
 
         //replace first letter to uppercase
         if (uppercase) {
@@ -29,7 +29,7 @@ public class SimplePasswordGenerator implements PasswordGenerator {
 
         //add special sign
         if (special) {
-            passwordToReturn.append(PasswordCriteria.SPECIAL_SIGNS.get(Utils.getRandomIndex(32)));
+            passwordToReturn.append(PasswordCriteria.SPECIAL_SIGNS.get(Utils.getRandomIndex(PasswordCriteria.SPECIAL_SIGNS.size())));
         }
 
         // Password should contain _ instead of spaces
