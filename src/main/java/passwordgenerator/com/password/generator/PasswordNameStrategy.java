@@ -1,4 +1,4 @@
-package passwordgenerator.com;
+package passwordgenerator.com.password.generator;
 
 public enum PasswordNameStrategy {
     SIMPLE,

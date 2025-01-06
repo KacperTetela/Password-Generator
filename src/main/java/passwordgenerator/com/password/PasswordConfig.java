@@ -1,7 +1,8 @@
-package passwordgenerator.com;
+package passwordgenerator.com.password;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import passwordgenerator.com.password.generator.*;
 
 import java.util.HashMap;
 import java.util.Map;

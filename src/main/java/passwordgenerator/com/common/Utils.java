@@ -1,4 +1,4 @@
-package passwordgenerator.com;
+package passwordgenerator.com.common;
 
 import java.util.Random;
 

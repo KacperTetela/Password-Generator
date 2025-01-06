@@ -1,14 +1,10 @@
-package passwordgenerator.com;
+package passwordgenerator.com.common;
 
 import org.springframework.web.client.RestClient;
 
 public abstract class APIWordDownloader {
 
     protected static final String URI_BASE = "https://api.datamuse.com/words?";
-
-    protected String similarTo(String similarWord) {
-        return "ml=" + similarWord;
-    }
 
     protected String withLetters(int length) {
         return withLetters(length, "");

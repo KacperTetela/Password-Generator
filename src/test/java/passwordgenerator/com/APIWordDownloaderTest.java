@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class APIWordDownloaderTest {
 
-/*    @Test
+/*
+    @Test
     void getRandomWord() {
         AutoWordDownloader AutoWordDownloader = new AutoWordDownloader();
 
@@ -31,7 +32,8 @@ class APIWordDownloaderTest {
     @Test
     void getWordStartingWith() {
 
-    }*/
+    }
+*/
 
 
 }

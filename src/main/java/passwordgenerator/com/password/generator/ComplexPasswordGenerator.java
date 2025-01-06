@@ -1,15 +1,17 @@
-package passwordgenerator.com;
+package passwordgenerator.com.password.generator;
+
+import passwordgenerator.com.password.PasswordCriteria;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static passwordgenerator.com.Utils.getRandomIndex;
+import static passwordgenerator.com.common.Utils.getRandomIndex;
 
 public class ComplexPasswordGenerator implements PasswordGenerator {
 
     @Override
-    public String generatePassword(int length, boolean uppercase, boolean digits, boolean special) {
+    public String generatePassword(PasswordCriteria passwordCriteria) {
         List<Character> lowerCaseString = new ArrayList<>(PasswordCriteria.LOWER_CASE_STRING);
         List<Character> upperCaseString = new ArrayList<>(PasswordCriteria.UPPER_CASE_STRING);
         List<Character> digitsList = new ArrayList<>(PasswordCriteria.DIGITS);
@@ -21,7 +23,7 @@ public class ComplexPasswordGenerator implements PasswordGenerator {
         Collections.shuffle(specialList);
 
 
-        int leftSigns = length;
+        int leftSigns = passwordCriteria.length();
         int lowerCaseSigns = leftSigns - ((int) ((double) leftSigns * 0.6));
         leftSigns -= lowerCaseSigns;
 
@@ -30,11 +32,11 @@ public class ComplexPasswordGenerator implements PasswordGenerator {
         int specialSigns = 0;
 
         while (leftSigns > 0) {
-            if (uppercase) {
+            if (passwordCriteria.uppercase()) {
                 upperCaseSigns++;
-            } else if (digits) {
+            } else if (passwordCriteria.digits()) {
                 digitsSigns++;
-            } else if (special) {
+            } else if (passwordCriteria.special()) {
                 specialSigns++;
             }
             leftSigns--;

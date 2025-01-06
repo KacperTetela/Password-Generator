@@ -1,9 +1,11 @@
-package passwordgenerator.com;
+package passwordgenerator.com.password;
+
+import passwordgenerator.com.password.generator.PasswordNameStrategy;
 
 import java.util.List;
 
 public record PasswordCriteria(PasswordNameStrategy strategy, int length, boolean uppercase, boolean digits,
-                               boolean special) {
+                               boolean special, String relatedWord) {
 
     private static final PasswordNameStrategy DEFAULT_STRATEGY = PasswordNameStrategy.SIMPLE;
 
@@ -49,6 +51,7 @@ public record PasswordCriteria(PasswordNameStrategy strategy, int length, boolea
         private boolean uppercase = DEFAULT_VALUE_UPPERCASE;
         private boolean digits = DEFAULT_VALUE_DIGITS;
         private boolean special = DEFAULT_VALUE_SPECIAL_SIGN;
+        private String relatedWord = "";
 
 
         Builder length(int length) {
@@ -71,8 +74,13 @@ public record PasswordCriteria(PasswordNameStrategy strategy, int length, boolea
             return this;
         }
 
+        Builder relatedWord(String relatedWord) {
+            this.relatedWord = relatedWord;
+            return this;
+        }
+
         PasswordCriteria build() {
-            return new PasswordCriteria(strategy, length, uppercase, digits, special);
+            return new PasswordCriteria(strategy, length, uppercase, digits, special, relatedWord);
         }
     }
 }
