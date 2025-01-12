@@ -1,9 +1,10 @@
 package passwordgenerator.com.password.generator;
 
-import passwordgenerator.com.common.APIWordDownloader;
+import passwordgenerator.com.common.words.APIWordDownloader;
+import passwordgenerator.com.common.words.WordAPIParams;
 import passwordgenerator.com.password.PasswordCriteria;
 
-public class SoundsLikePasswordGenerator extends APIWordDownloader implements PasswordGenerator {
+public class SoundsLikePasswordGenerator implements PasswordGenerator {
 
     private static final String relatedWord = "jirraf";
 
@@ -12,16 +13,16 @@ public class SoundsLikePasswordGenerator extends APIWordDownloader implements Pa
 
         String potentialPassword;
         try {
-            potentialPassword = getFromAPI(URI_BASE + soundsLike(relatedWord) + "&" + withLetters(passwordCriteria.length()));
+            potentialPassword = new APIWordDownloader().getFromAPI(new WordAPIParams.Builder()
+                    .soundsLike(passwordCriteria.relatedWord())
+                    .length(passwordCriteria.length())
+                    .build());
+
         } catch (Exception e) {
             potentialPassword = relatedWord;
         }
 
         return potentialPassword;
-    }
-
-    private String soundsLike(String relatedWord) {
-        return "sl=" + relatedWord;
     }
 
 }

@@ -2,30 +2,11 @@ package passwordgenerator.com.password.generator;
 
 import org.springframework.stereotype.Service;
 import passwordgenerator.com.common.Utils;
-import passwordgenerator.com.common.APIWordDownloader;
+import passwordgenerator.com.common.words.APIWordDownloader;
 import passwordgenerator.com.password.PasswordCriteria;
 
 @Service
-public class SimplePasswordGenerator extends APIWordDownloader implements PasswordGenerator {
-
-    private String lastWord = "";
-
-    private String similarTo(String similarWord) {
-        return "ml=" + similarWord;
-    }
-
-    String getRandomWord(int length) {
-        if (lastWord.isEmpty()) {
-            lastWord = getFromAPI(URI_BASE + withLetters(length, String.valueOf(Utils.getRandomASCILetter())));
-        } else {
-            lastWord = getFromAPI(URI_BASE + similarTo(lastWord) + "&" + withLetters(length));
-        }
-        if (lastWord.isEmpty()) {
-            lastWord = getRandomWord(length);
-        }
-
-        return lastWord;
-    }
+public class SimplePasswordGenerator implements PasswordGenerator {
 
     @Override
     public String generatePassword(PasswordCriteria passwordCriteria) {
@@ -33,7 +14,7 @@ public class SimplePasswordGenerator extends APIWordDownloader implements Passwo
         int length = passwordCriteria.digits() ? passwordCriteria.length() - 1 : passwordCriteria.length();
         length = passwordCriteria.special() ? length - 1 : length;
 
-        passwordToReturn.append(getRandomWord(length));
+        passwordToReturn.append(new APIWordDownloader().getRandomWord(length));
 
         //replace first letter to uppercase
         if (passwordCriteria.uppercase()) {
