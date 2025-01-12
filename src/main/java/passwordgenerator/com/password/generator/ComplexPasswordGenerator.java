@@ -31,15 +31,24 @@ public class ComplexPasswordGenerator implements PasswordGenerator {
         int digitsSigns = 0;
         int specialSigns = 0;
 
+        int activeCategories = 0;
+        if (passwordCriteria.uppercase()) activeCategories++;
+        if (passwordCriteria.digits()) activeCategories++;
+        if (passwordCriteria.special()) activeCategories++;
+
         while (leftSigns > 0) {
-            if (passwordCriteria.uppercase()) {
+            if (passwordCriteria.uppercase() && activeCategories > 0) {
                 upperCaseSigns++;
-            } else if (passwordCriteria.digits()) {
-                digitsSigns++;
-            } else if (passwordCriteria.special()) {
-                specialSigns++;
+                leftSigns--;
             }
-            leftSigns--;
+            if (passwordCriteria.digits() && activeCategories > 0 && leftSigns > 0) {
+                digitsSigns++;
+                leftSigns--;
+            }
+            if (passwordCriteria.special() && activeCategories > 0 && leftSigns > 0) {
+                specialSigns++;
+                leftSigns--;
+            }
         }
 
         StringBuilder finalPassword = new StringBuilder();
