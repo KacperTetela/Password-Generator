@@ -54,32 +54,24 @@ public class ComplexPasswordGenerator implements PasswordGenerator {
         StringBuilder finalPassword = new StringBuilder();
         while (lowerCaseSigns > 0) {
             finalPassword.append(lowerCaseString.get(getRandomIndex(lowerCaseString.size())));
-            if (lowerCaseString.size() > 0)
-                lowerCaseString.remove(getRandomIndex(lowerCaseString.size()));
             Collections.shuffle(lowerCaseString);
             lowerCaseSigns--;
         }
 
         while (upperCaseSigns > 0) {
             finalPassword.append(upperCaseString.get(getRandomIndex(upperCaseString.size())));
-            if (upperCaseString.size() > 0)
-                upperCaseString.remove(getRandomIndex(upperCaseString.size()));
             Collections.shuffle(upperCaseString);
             upperCaseSigns--;
         }
 
         while (digitsSigns > 0) {
             finalPassword.append(digitsList.get(getRandomIndex(digitsList.size())));
-            if (digitsList.size() > 0)
-                digitsList.remove(getRandomIndex(digitsList.size()));
             Collections.shuffle(digitsList);
             digitsSigns--;
         }
 
         while (specialSigns > 0) {
             finalPassword.append(specialList.get(getRandomIndex(specialList.size())));
-            if (specialList.size() > 0)
-                specialList.remove(getRandomIndex(specialList.size()));
             Collections.shuffle(specialList);
             specialSigns--;
         }
