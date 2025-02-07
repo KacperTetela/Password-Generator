@@ -1,6 +1,6 @@
 # Password Generator API
 
-![Java](https://img.shields.io/badge/Java-17-blue)
+![Java](https://img.shields.io/badge/Java-23-blue)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0-green)
 ![License](https://img.shields.io/github/license/KacperTetela/Password-Generator)
 
@@ -14,7 +14,7 @@ Password Generator API is a simple REST API for generating passwords based on us
 
 ## 📦 Technology Stack
 
-- **Language**: Java 17
+- **Language**: Java 23
 - **Framework**: Spring Boot 3.x
 - **Build Tool**: Maven
 
@@ -111,7 +111,7 @@ curl -X POST "http://localhost:8080/api/v1/passwords" \
 
 ## 📄 License
 
-This project is available under the MIT License. See [`LICENSE`](LICENSE) for details.
+This project is available under the MIT License. See [`LICENSE`](https://choosealicense.com/licenses/mit/)) for details.
 
 ## ✨ Author
 
