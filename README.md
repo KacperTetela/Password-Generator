@@ -111,7 +111,7 @@ curl -X POST "http://localhost:8080/api/v1/passwords" \
 
 ## 📄 License
 
-This project is available under the MIT License. See [`LICENSE`](https://choosealicense.com/licenses/mit/)) for details.
+This project is available under the MIT License. See [`LICENSE`](https://choosealicense.com/licenses/mit/) for details.
 
 ## ✨ Author
 
